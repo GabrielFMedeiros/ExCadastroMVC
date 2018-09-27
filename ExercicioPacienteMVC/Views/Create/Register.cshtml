@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>Nesta página é possível realizar o cadastro do paciente.</h2><br />
+@using (Html.BeginForm("Insert", "Create", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="jumbotron">
+    @Html.AntiForgeryToken() 
+    <form action="" method="post" id="cadPaciente">
+        <h4>Formulário de Cadastro de Paciente:</h4>
+        <div class="form-group">
+            <input class="form-control" required oninvalid="this.setCustomValidity('Nome Obrigatório!')" oninput="setCustomValidity('')" id="Nome" name="Nome" placeholder="Digite o nome do paciente" type="text" value="" />
+        </div>
+        <div class="form-group">
+            <input class="form-control" required oninvalid="this.setCustomValidity('Idade Obrigatória!')" oninput="setCustomValidity('')" id="Idade" name="Idade" placeholder="Digite a idade do paciente" type="number" value="" />
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" id="Masc" name="Sexo" type="radio" value="Masculino" required="required" oninvalid="this.setCustomValidity('Sexo Obrigatório')" onclick="setCustomValidity('')" />
+            <label class="form-check-label" for="Masc">Masculino</label>
+            <input class="form-check-input" id="Fem" name="Sexo" type="radio" value="Feminino" oninput="setCustomValidity('')" />
+            <label class="form-check-label" for="Fem">Feminino</label>
+        </div>
+        <div class="form-group">
+            <input class="form-control" required oninvalid="this.setCustomValidity('Telefone Obrigatório!')" oninput="setCustomValidity('')" id="Telefone" name="Telefone" placeholder="Digite o telefone do paciente" type="text" value="" />
+        </div>
+        <div class="form-group">
+            <input class="form-control" id="Celular" name="Celular" placeholder="Digite o celular do paciente" type="text" value="" />
+        </div>
+        <div class="form-group">
+            <input class="form-control" required oninvalid="this.setCustomValidity('E-mail Obrigatório!')" oninput="setCustomValidity('')" id="Email" name="Email" placeholder="Digite o e-mail do paciente" type="email" value="" />
+        </div>
+        <div class="form-group">
+            <input class="form-control" id="Responsavel" name="Responsavel" placeholder="Digite o responsavel do paciente" type="text" value="" />
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success" value="Insert">Cadastrar</button>
+            <button type="reset" class="btn btn-danger" value="Cancelar">Cancelar</button>
+        </div>
+    </form>
+</div>
+}
+

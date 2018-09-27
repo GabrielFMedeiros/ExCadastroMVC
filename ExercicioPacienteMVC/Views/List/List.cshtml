@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewBag.Title = "List";
+}
+
+@model IList<GestaoPacienteService.VOL.Paciente>
+
+<h2>Nesta pagína serão exibidos todos os registros de pacientes inseridos no banco de dados!</h2>
+
+<div class="jumbotron">
+    <h4>Pacientes</h4>
+    <table class="table table-bordered table-condensed table-striped table-hover" id="tblPacientes">
+        <thead>
+            <tr class="alert-info">
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Idade</th>
+                <th scope="col">Sexo</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Celular</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Responsavel</th>
+                <th class="hidden"></th>
+            </tr>
+        </thead>
+        @foreach (var paciente in Model) {
+            <tbody>
+            <tr>
+                <td scope="row"> @paciente.id </td>
+                <td> @paciente.nome </td>
+                <td> @paciente.idade </td>
+                <td> @paciente.sexo </td>
+                <td> @paciente.telefone </td>
+                <td> @paciente.celular </td>
+                <td> @paciente.email </td>
+                <td> @paciente.responsavel </td>
+                <td> @Html.ActionLink("Editar", "Alter", "Edit", paciente, new { @class = "btn btn-warning" })</td>
+                <td> @Html.ActionLink("Excluir", "Exclude", "Delete", paciente, new { @class = "btn btn-danger" })</td>
+            </tr>
+            </tbody>
+         } 
+    </table>
+</div>
+
